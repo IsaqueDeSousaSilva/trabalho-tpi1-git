@@ -7,18 +7,35 @@ public class Calculadora {
      * @param b Segundo número
      * @return Resultado da operação
      */
-    public double calcular(String operacao, int a, int b) {
-        switch (operacao.toLowerCase()) {
-            default:
-                throw new IllegalArgumentException("Operação inválida: " + operacao);
-        }
+   public double bem(String operacao, double a, double b) {
+
+    switch (operacao.toLowerCase()) {
+        case "soma":
+            return a + b;
+
+        case "subtracao":
+            return a - b;
+
+        case "multiplicacao":
+            return a * b;
+
+        case "divisao":
+            if (b != 0) {
+                return a / b;
+            } else {
+                throw new IllegalArgumentException("Não pode dividir por zero");
+            }
+
+        default:
+            throw new IllegalArgumentException("Operação inválida: " + operacao);
     }
+}
 
     // Método principal para testar
     public static void main(String[] args) {
         Calculadora calc = new Calculadora();
 
-        calc.calcular( "", 0, 0 );
+        calc.bem("soma", 10, 5);
     }
 }
 
